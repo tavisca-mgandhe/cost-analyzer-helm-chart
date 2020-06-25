@@ -12177,7 +12177,7 @@ spec:
     
   resources:
     requests:
-      storage: "32Gi"
+      storage: "10Gi"
 ---
 # Source: cost-analyzer/templates/cost-analyzer-pvc-template.yaml
 kind: PersistentVolumeClaim
@@ -12843,9 +12843,9 @@ spec:
   clusterIP: None
   ports:
     - name: metrics
-      port: 9100
+      port: 9101
       protocol: TCP
-      targetPort: 9100
+      targetPort: 9101
   selector:
     component: "node-exporter"
     app: prometheus
@@ -12944,10 +12944,11 @@ spec:
           args:
             - --path.procfs=/host/proc
             - --path.sysfs=/host/sys
+            - --web.listen-address=:9101
           ports:
             - name: metrics
-              containerPort: 9100
-              hostPort: 9100
+              containerPort: 9101
+              hostPort: 9101
           resources:
             {}
             
