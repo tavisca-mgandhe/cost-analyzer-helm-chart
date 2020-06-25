@@ -12177,7 +12177,7 @@ spec:
     
   resources:
     requests:
-      storage: "32Gi"
+      storage: "10Gi"
 ---
 # Source: cost-analyzer/templates/cost-analyzer-pvc-template.yaml
 kind: PersistentVolumeClaim
